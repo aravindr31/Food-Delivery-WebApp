@@ -1,0 +1,45 @@
+*::-webkit-scrollbar {
+  display: none;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+  background-color: #fff;
+  color: #181a29;
+  width: 100%;
+  z-index: 1;
+  border-bottom: 1px solid lightgray;
+}
+.header > a:link {
+  text-decoration: none;
+}
+.header-right {
+  display: flex;
+  justify-content: space-around;
+  flex: 0.3;
+  margin-right: 20px;
+}
+.header-right > a:link {
+  text-decoration: none;
+}
+.header-right > a > h4 {
+  font-size: medium;
+  color: #000;
+  font-weight: 500;
+}
+.header-right > a > h4:hover {
+  color: #fc8019;
+}
+.header-right > a > img {
+  height: 30px;
+  object-fit: contain;
+}
+.header-left {
+  flex: 0.7;
+  justify-content: flex-start;
+  margin-left: 20px;
+  font-weight: normal;
+  color: #181a29;
+}

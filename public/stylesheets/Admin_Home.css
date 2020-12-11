@@ -1,0 +1,22 @@
+.contain{
+    margin-top: 25px;
+    padding: 20px;
+}
+.btns{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* .flexcontainer{
+    display: grid;
+    grid-template-columns: .5 .5;	
+} */
+.card{
+    justify-items:center;
+}
+.cardimage{
+    height: 185px;
+    padding: 9px;
+    object-fit: contain;
+    /* margin-top: 1px; */
+    }

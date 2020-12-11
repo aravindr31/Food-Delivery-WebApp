@@ -1,0 +1,40 @@
+.contain {
+  background-color: #FEB663;
+  height: calc(100vh - 75px);
+}
+.formcontainer {
+  width: 60%;
+  height: 450px;
+  background-color: white;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+.form-box-left {
+  float: left;
+  width: 35%;
+  height: 450px;
+  background: url("/images/bg-heading-02.jpg");
+  background-size: cover;
+  border-radius: 10px 0 0 10px;
+}
+.form-box-right {
+    float: right;
+    width: 60%;
+    height: 450px;
+    margin-right:15px;
+}
+.form-data{
+    width: 100%;
+    height: 400px;
+    background-color: white;
+}
+.form-data >h2{
+font-weight: normal;
+margin-top: 20px;
+}
+.form-data >form{
+  padding: 50px 40px;
+}
+.form-data input{
+    margin-bottom: 20px;
+}

@@ -1,0 +1,45 @@
+{{>Header}}
+<section>
+    <div class="contain pt-4">
+        {{!-- <h2>Add Dish</h2> --}}
+        <div class="formcontainer">
+            <div class="form-box-left"></div>
+            <div class="form-box-right">
+                <div class="form-data">
+                    <h2 class="text-center">Add Item</h2>
+                    {{!-- enctype="multipart/form-data" --}}
+                    <form action="/admin/adddish" Method="POST">
+                        <input type="text" class="form-control" id="name" name="Name" placeholder="Name">
+                        <div class="row">
+                            <div class="col">
+                                <select class="form-control" name="Category">
+                                    <option>Select Category</option>
+                                    <option>Indian</option>
+                                    <option>Arabian</option>
+                                    <option>Chinese</option>
+                                    <option>Pizza</option>
+                                    <option>Dessert</option>
+                                    <option>Cakes</option>
+                                    <option>Biriyani</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select class="form-control" name="VegCategory">
+                                    <option>Select Category</option>
+                                    <option>Vegetarian</option>
+                                    <option>Non Vegetarian</option>
+                                </select>
+                            </div>
+                        </div><br>
+                        <input type="number" class="form-control" id="price" name="Price" placeholder="Price">
+                        {{!-- <div class="mb-3">
+                            <label for="formFile" class="form-label">Default file input example</label> --}}
+                        {{!-- <input class="form-control" type="file" id="formFile" name="image"> --}}
+                        {{!-- </div> --}}
+                        <button type="submit" class="btn btn-info">Add Dish</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

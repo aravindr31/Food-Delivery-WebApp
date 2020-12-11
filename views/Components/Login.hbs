@@ -1,0 +1,41 @@
+<section>
+    <div class="container">
+        <div class="user signinBx">
+            <div class="imgBx"><img
+                    src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80"
+                    alt="" /></div>
+            <div class="formBx">
+                <form action="/login" method="POST">
+                    <h2>Sign In</h2>
+                    <input type="email" name="Email" placeholder="Email" />
+                    <input type="password" name="Password" placeholder="Password" />
+                    <input type="submit" value="Login" />
+                    <p class="signup">
+                        Don't have an account ?
+                        <a onclick="toggleForm();">Sign Up</a>.
+                    </p>
+                </form>
+            </div>
+        </div>
+        <div class="user signupBx">
+            <div class="formBx">
+                <form action="/register" method="POST">
+                    <h2>Create an account</h2>
+                    <input type="text" name="Name" placeholder="Name" />
+                    <input type="email" name="Email" placeholder="Email" />
+                    <input type="number" name="Mobile" placeholder="Mobile" />
+                    <input type="password" name="Password" placeholder="Create Password" />
+                    <input type="password" name="CPassword" placeholder="Confirm Password" />
+                    <input type="submit" value="Sign Up" />
+                    <p class="signup">
+                        Already have an account ?
+                        <a onclick="toggleForm();">Sign in</a>.
+                    </p>
+                </form>
+            </div>
+            <div class="imgBx"><img
+                    src="https://images.unsplash.com/photo-1553452118-621e1f860f43?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80"
+                    alt="" /></div>
+        </div>
+    </div>
+</section>
