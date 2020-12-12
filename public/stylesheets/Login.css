@@ -7,7 +7,7 @@ section .container {
   background: #fff;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  margin-top: 10px;
+  margin-top: 85px;
 }
 
 section .container .user {

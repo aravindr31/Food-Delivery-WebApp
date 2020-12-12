@@ -13,6 +13,16 @@ function hide(id) {
 }
 //Login Page
 const toggleForm = () => {
-    const container = document.querySelector('.container');
-    container.classList.toggle('active');
-  };
+  const container = document.querySelector(".container");
+  container.classList.toggle("active");
+};
+//Sidebar
+function openNav() {
+  document.getElementById("mySidebar").style.width = "35%";
+  document.getElementById("contain").style.marginLeft = "35%";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("contain").style.marginLeft = "0";
+}

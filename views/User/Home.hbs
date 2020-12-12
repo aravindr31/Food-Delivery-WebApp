@@ -1,7 +1,7 @@
 <section>
     {{>Header}}
     {{>Banner}}
-    <div class="container-fluid">
+    <div class="container-fluid" id="contain">
         <div class="contain mt-4">
             <h2>{{count}} Categories</h2>
             {{#each menu}}
@@ -28,6 +28,121 @@
                 {{/each}}
             </div>
             {{/each}}
+            <div class="cart">
+                <div class="adminActions">
+                    <button class="openbtn adminButton  btn" onclick="openNav()"><img class="buttonimg"
+                            src="https://cdn0.iconfinder.com/data/icons/simpline-mix/64/simpline_41-256.png"
+                            alt="cart"></button>
+                </div>
+            </div>
         </div>
+    </div>
+    <div id="mySidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3>CART</h3>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        </div>
+        <div class="sidebar-content mb-2">
+            <div class="card border-0  pl-2">
+                <div class="cartCard">
+                    <div class="card-left  ml-2">
+                        <h5>Double Cheese Margherita</h5>
+                    </div>
+                    <div class="card-right mr-2">
+                        <div class="top">
+                            <button class="btn mr-2">+</button>
+                            <h5 class="text-center">2</h5>
+                            <button class="btn ml-2">-</button>
+                        </div>
+                        <div class="bottom text-center">
+                            <h5>Rs 500</h5>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card border-0  pl-2">
+                <div class="cartCard">
+                    <div class="card-left  ml-2">
+                        <h5>Double Cheese Margherita</h5>
+                    </div>
+                    <div class="card-right mr-2">
+                        <div class="top">
+                            <button class="btn mr-2">+</button>
+                            <h5 class="text-center">2</h5>
+                            <button class="btn ml-2">-</button>
+                        </div>
+                        <div class="bottom text-center">
+                            <h5>Rs 500</h5>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card border-0  pl-2">
+                <div class="cartCard">
+                    <div class="card-left  ml-2">
+                        <h5>Double Cheese Margherita</h5>
+                    </div>
+                    <div class="card-right mr-2">
+                        <div class="top">
+                            <button class="btn mr-2">+</button>
+                            <h5 class="text-center">2</h5>
+                            <button class="btn ml-2">-</button>
+                        </div>
+                        <div class="bottom text-center">
+                            <h5>Rs 500</h5>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card border-0  pl-2">
+                <div class="cartCard">
+                    <div class="card-left  ml-2">
+                        <h5>Double Cheese Margherita</h5>
+                    </div>
+                    <div class="card-right mr-2">
+                        <div class="top">
+                            <button class="btn mr-2">+</button>
+                            <h5 class="text-center">2</h5>
+                            <button class="btn ml-2">-</button>
+                        </div>
+                        <div class="bottom text-center">
+                            <h5>Rs 500</h5>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card border-0  pl-2">
+                <div class="cartCard">
+                    <div class="card-left  ml-2">
+                        <h5>Double Cheese Margherita</h5>
+                    </div>
+                    <div class="card-right mr-2">
+                        <div class="top">
+                            <button class="btn mr-2">+</button>
+                            <h5 class="text-center">2</h5>
+                            <button class="btn ml-2">-</button>
+                        </div>
+                        <div class="bottom text-center">
+                            <h5>Rs 500</h5>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-footer">
+            <div class="subtotal">
+                <h4>Subtotal <span>Rs 500</span></h4>
+            </div>
+            <button class="btn h-50">CHECKOUT</button>
+        </div>
+
     </div>
 </section>

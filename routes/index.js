@@ -42,4 +42,7 @@ router.post("/register", (req, res) => {
     }
   });
 });
+router.get("/cart",(req,res)=>{
+  res.render("User/cart")
+})
 module.exports = router;

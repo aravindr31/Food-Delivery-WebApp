@@ -11,6 +11,8 @@
   width: 100%;
   z-index: 1;
   border-bottom: 1px solid lightgray;
+  top: 0;
+  position: fixed;
 }
 .header > a:link {
   text-decoration: none;
