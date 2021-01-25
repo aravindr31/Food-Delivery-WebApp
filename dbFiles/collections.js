@@ -1,4 +1,6 @@
 module.exports={
     MENU:'menu',
-    USERS:"users"
+    USERS:"users",
+    CART:"cart",
+    ORDERS:"orders"
 }

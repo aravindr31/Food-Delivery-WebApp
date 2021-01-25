@@ -1,0 +1,149 @@
+.container {
+  margin-top: 85px;
+  height: calc(100vh - 85px);
+  /* overflow: hidden; */
+  padding-bottom: 15px;
+}
+.checkout-cards {
+  display: flex;
+}
+.card-left {
+  flex: 0.7;
+}
+.loginCard {
+  margin-top: 20px;
+  background-color: white;
+  padding: 25px;
+}
+.loginCard > h5 {
+  margin-top: 25px;
+}
+.locationCard {
+  margin: 20px 0px;
+  background-color: white;
+  padding: 25px;
+}
+.address {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.addressCard {
+  margin-top: 20px;
+  background-color: #f3f9fb;
+  width: 330px;
+  padding: 25px;
+  display: flex;
+}
+.addressCard:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+.insidecard-left {
+  flex: 0.1;
+}
+.insidecard-left > img {
+  height: 25px;
+  object-fit: contain;
+}
+.insidecard-right {
+  flex: 0.9;
+  margin-left: 10px;
+}
+.insidecard-right > h4 {
+  font-size: 20px;
+}
+.insidecard-right p{
+  overflow: hidden;
+  line-height: 20px;
+  font-weight: 400;
+  width: 250px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.insidecard-right >.btn-group-toggle>.btn {
+  margin-top: 5px;
+  background-color: #57c67f;
+  color: white !important;
+}
+.addNewCard {
+  padding-right: 20%;
+}
+.addNewCard > .btn {
+  border: 1px solid #57c67f;
+  color: #57c67f;
+  font-weight: 400;
+}
+.addNewCard > .btn:hover {
+  border: 1px solid white;
+  background-color: #57c67f;
+  color: white;
+  font-weight: 400;
+}
+.paymentCard {
+  margin-top: 20px;
+  background-color: white;
+  padding: 25px;
+}
+.card-right {
+  flex: 0.3;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 20px 0px;
+  margin-left: 20px;
+  background-color: white;
+  padding: 20px;
+}
+.card-right h2 {
+  font-weight: 400;
+  font-size:25px;
+}
+.card-right-internal {
+  max-height: calc(100vh - 290px);
+  padding: 10px 0;
+  /* margin-bottom:10px; */
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.order-cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f3f9fb;
+  height: 70px;
+  margin-bottom: 5px;
+  padding:10px;
+}
+.order-cards h3 {
+  font-weight: 400;
+  font-size: 18px;
+  width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.order-cards h5 {
+  font-weight: 400;
+  font-size: 15px;
+}
+.card-right > h4 {
+  margin-top: 15px;
+  font-weight: 500;
+  font-size: 18px;
+}
+.card-right h4 >span{
+  font-size: 25px;
+  font-weight: 400;
+}
+.card-right > .btn {
+  margin-top: 5px;
+  background-color: #57c67f;
+  color: white !important;
+}
+.modal-footer>.addbtn{
+  background-color: #57c67f;
+  color:white !important;
+}
+.form-control::placeholder{
+  font-size:small;
+}

@@ -1,0 +1,69 @@
+<section>
+    {{>Header}}
+    <div class="container">
+        {{!-- <div class="emptyCart">
+            <h4>Cart is Empty :(</h4>
+            <h5 class="text-muted">you haven't ordered anything yet</h5>
+            <h5 class="text-muted">to order,go back to Home Page</h5>
+            <img src="https://www.flaticon.com/svg/static/icons/svg/2169/2169831.svg" alt="">
+            <a class="btn" href="/">Go back</a>
+        </div> --}}
+        <div class="cart pt-4">
+            <div class="cart-top">
+                <img src="https://www.flaticon.com/svg/static/icons/svg/3039/3039878.svg" alt="">
+                <h5>5 Items</h5>
+            </div>
+            <div class="cart-bottom">
+                <div class="cart-left me-1">
+                    {{#each cart}}
+                    <div class="cart-left-card">
+                        {{#each order}}
+                        <div class="cart-left-card-right">
+                            <img src="https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="">
+                            <h5>{{this.Name}}</h5>
+                        </div>
+                        {{/each}}
+                        <div class="cart-left-card-left">
+                            <div class="changeBtn mb-3">
+                                <button class="btn mr-2">+</button>
+                                <h5 class="text-center text-muted mt-2">{{this.quantity}}</h5>
+                                <button class="btn ml-2">-</button>
+                            </div>
+                            {{#each order}}
+                            <h4>₹ {{this.Price}}</h4>
+                            {{/each}}
+                        </div>
+                        <h5 class="remove">x</h5>
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="cart-right ms-1">
+                    <div class="cart-right-top">
+                        <div class="subtotal">
+                            <h4 class="text-muted">Subtotal</h4>
+                            <h4 class="text-muted">₹ {{total.subtotal}}</h4>
+                        </div>
+                        <div class="GST">
+                            <h4 class="text-muted">GST</h4>
+                            <h4 class="text-muted">₹ {{total.GST}}</h4>
+                        </div>
+                        <div class="extras">
+                            <h4 class="text-muted">Delivery Charge</h4>
+                            <h4 class="text-muted">₹ {{total.Dcharge}}</h4>
+                        </div>
+                    </div>
+                    <div class="card-right-bottom">
+                        <div class="total">
+                            <h4>Total</h4>
+                            <h4>₹ {{total.total }}</h4>
+                        </div>
+                        <div class="checkout">
+                            <a href="/checkout" class="btn">CHECKOUT</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

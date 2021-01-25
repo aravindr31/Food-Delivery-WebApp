@@ -1,0 +1,23 @@
+{{#each cart}}
+<div class="card border-0  pl-2">
+    <div class="cartCard">
+        {{#each order}}
+        <div class="card-left  ml-2">
+            <h5>{{this.Name}}</h5>
+        </div>
+        {{/each}}
+        <div class="card-right mr-2">
+            <div class="top">
+                <button class="btn mr-2">+</button>
+                <h5 class="text-center">{{this.quantity}}</h5>
+                <button class="btn ml-2">-</button>
+            </div>
+            <div class="bottom text-center">
+                <h5>Rs 500</h5>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{{/each}}

@@ -11,16 +11,17 @@
             <div class="d-flex overflow-auto m-3">
                 {{#each this.Items}}
                 <div class="col-md-3 p-3">
-                    <div class="card border-0 p-1 " id="card" onmouseover="show('{{this._id}}')"
+                    <div class="card  border-0 p-1" id="card" onmouseover="show('{{this._id}}')"
                         onmouseout="hide('{{this._id}}')">
                         <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ndxghfzqe4qc2dacxiwd"
                             class="card-img-top p-2" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{this.Name}}</h5>
                             <p class="card-text text-muted">{{this.VegCategory}}</p>
-                            <div class="d-flex justify-content-between align-items-center flex-base">
+                            <div class="flex-base">
                                 <h4>₹ {{this.Price}}</h4>
-                                <button id="{{this._id}}" class="btn text-center"><span>+</span>Add</button>
+                                <button id="{{this._id}}" onclick="addToCart('{{this._id}}')"
+                                    class="btn text-center"><span>+</span>Add</button>
                             </div>
                         </div>
                     </div>
@@ -28,121 +29,4 @@
                 {{/each}}
             </div>
             {{/each}}
-            <div class="cart">
-                <div class="adminActions">
-                    <button class="openbtn adminButton  btn" onclick="openNav()"><img class="buttonimg"
-                            src="https://cdn0.iconfinder.com/data/icons/simpline-mix/64/simpline_41-256.png"
-                            alt="cart"></button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="mySidebar" class="sidebar">
-        <div class="sidebar-header">
-            <h3>CART</h3>
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        </div>
-        <div class="sidebar-content mb-2">
-            <div class="card border-0  pl-2">
-                <div class="cartCard">
-                    <div class="card-left  ml-2">
-                        <h5>Double Cheese Margherita</h5>
-                    </div>
-                    <div class="card-right mr-2">
-                        <div class="top">
-                            <button class="btn mr-2">+</button>
-                            <h5 class="text-center">2</h5>
-                            <button class="btn ml-2">-</button>
-                        </div>
-                        <div class="bottom text-center">
-                            <h5>Rs 500</h5>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="card border-0  pl-2">
-                <div class="cartCard">
-                    <div class="card-left  ml-2">
-                        <h5>Double Cheese Margherita</h5>
-                    </div>
-                    <div class="card-right mr-2">
-                        <div class="top">
-                            <button class="btn mr-2">+</button>
-                            <h5 class="text-center">2</h5>
-                            <button class="btn ml-2">-</button>
-                        </div>
-                        <div class="bottom text-center">
-                            <h5>Rs 500</h5>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="card border-0  pl-2">
-                <div class="cartCard">
-                    <div class="card-left  ml-2">
-                        <h5>Double Cheese Margherita</h5>
-                    </div>
-                    <div class="card-right mr-2">
-                        <div class="top">
-                            <button class="btn mr-2">+</button>
-                            <h5 class="text-center">2</h5>
-                            <button class="btn ml-2">-</button>
-                        </div>
-                        <div class="bottom text-center">
-                            <h5>Rs 500</h5>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="card border-0  pl-2">
-                <div class="cartCard">
-                    <div class="card-left  ml-2">
-                        <h5>Double Cheese Margherita</h5>
-                    </div>
-                    <div class="card-right mr-2">
-                        <div class="top">
-                            <button class="btn mr-2">+</button>
-                            <h5 class="text-center">2</h5>
-                            <button class="btn ml-2">-</button>
-                        </div>
-                        <div class="bottom text-center">
-                            <h5>Rs 500</h5>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="card border-0  pl-2">
-                <div class="cartCard">
-                    <div class="card-left  ml-2">
-                        <h5>Double Cheese Margherita</h5>
-                    </div>
-                    <div class="card-right mr-2">
-                        <div class="top">
-                            <button class="btn mr-2">+</button>
-                            <h5 class="text-center">2</h5>
-                            <button class="btn ml-2">-</button>
-                        </div>
-                        <div class="bottom text-center">
-                            <h5>Rs 500</h5>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="sidebar-footer">
-            <div class="subtotal">
-                <h4>Subtotal <span>Rs 500</span></h4>
-            </div>
-            <button class="btn h-50">CHECKOUT</button>
-        </div>
-
-    </div>
 </section>

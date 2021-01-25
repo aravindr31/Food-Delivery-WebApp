@@ -1,0 +1,133 @@
+<section>
+    {{>Header}}
+    <div class="container">
+        <div class="checkout-cards">
+            <div class="card-left">
+                <div class="loginCard">
+                    <h3>Logged in</h3>
+                    <h5>Aravind R | 8129883015</h5>
+                </div>
+                <div class="locationCard">
+                    <h3>Delivery address</h3>
+                    <div class="address">
+                        {{#if user.Address}}
+                        <div class="addressCard">
+                            <div class="insidecard-left">
+                                <img src="https://www.flaticon.com/svg/static/icons/svg/3892/3892652.svg" alt="">
+                            </div>
+                            <div class="insidecard-right">
+                                <h4 class="mb-3">Default Delivery address</h4>
+                                <p class="text-muted">{{user.Address.address}}</p>
+                                {{!-- <p class="text-muted">Edavetty p o</p> --}}
+                                <p class="text-muted">{{user.Address.city}}</p>
+                                <p class="text-muted">{{user.Address.zipcode}}</p>
+
+                                <div class="btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn active">
+                                        <input type="checkbox" id="dadd" onclick="check('dAdd')" autocomplete="off"
+                                            checked> Deliver Here
+                                    </label>
+                                </div>
+
+                                {{!-- <button type="checkbox" class="btn" onclick="payBtnEnable()" checked>Deliver
+                                    Here</button> --}}
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{#if user.tmpAddress}}
+                        <div class="addressCard">
+                            <div class="insidecard-left">
+                                <img src="https://www.flaticon.com/svg/static/icons/svg/3892/3892652.svg" alt="">
+                            </div>
+                            <div class="insidecard-right">
+                                <h4 class="mb-3">Current Delivery address</h4>
+                                <p class="text-muted">{{user.tmpAddress.address}}</p>
+                                {{!-- <p class="text-muted">Edavetty p o</p> --}}
+                                <p class="text-muted">{{user.tmpAddress.city}}</p>
+                                <p class="text-muted">{{user.tmpAddress.zipcode}}</p>
+
+                                <div class="btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn ">
+                                        <input type="checkbox" id="tadd" onclick="check('tAdd')" autocomplete="off">
+                                        Deliver Here
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                        {{else}}
+                        <div class="addNewCard">
+                            <button class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">+ Add
+                                New</button>
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            {{!-- <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Delivery address</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div> --}}
+                            <div class="modal-body">
+                                <h5 class="modal-title" id="staticBackdropLabel">Delivery address</h5>
+                                <p class="text-muted">Please enter your shipping details.</p>
+                                <form class="address-form" action="/addAddress" id="addNewAddress" method="POST">
+                                    <div class="input-group">
+                                        <input class="form-control me-1" type="text" name="firstname"
+                                            placeholder="FIRSTNAME">
+                                        <input class="form-control ms-1" type="text" name="lastname"
+                                            placeholder="LASTNAME">
+                                    </div>
+                                    <input class="form-control mt-3" type="text" name="address" placeholder="ADDRESS">
+                                    <input class="form-control mt-3" type="text" name="country" placeholder="COUNTRY">
+                                    <div class="input-group mt-3">
+                                        <input class="form-control me-1" type="text" name="zipcode"
+                                            placeholder="ZIP CODE">
+                                        <input class="form-control ms-1 me-1" type="text" name="city"
+                                            placeholder="CITY">
+                                        <input class="form-control ms-1" type="text" name="state" placeholder="STATE">
+                                    </div>
+                                    <div class="form-check mt-3">
+                                        <input class="form-check-input" type="checkbox" name="defaultCheck" value="set"
+                                            id="flexCheckChecked" checked>
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            Set as Default Address
+                                        </label>
+                                    </div>
+                                    <div class="modal-footer border-0 mt-2">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Dismiss</button>
+                                        <button type="submit" class="btn addbtn">Add address</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-right">
+                <h2>Your Cart</h2>
+                <div class="card-right-internal">
+                    {{#each cart}}
+                    <div class="order-cards">
+                        {{#each order}}
+                        <h3>{{this.Name}}</h3>
+                        <h5>{{../this.quantity}} <span>x</span> {{this.Price}}</h5>
+                        {{/each}}
+                    </div>
+                    {{/each}}
+                </div>
+
+                <h4>Total (+GST +Extras)<span class="float-end">₹ {{total.total}}</span></h4>
+                <button class="btn" id="payBtn" onclick="paynow('{{user._id}}')">Pay
+                    <span>{{total.total}}</span></button>
+            </div>
+        </div>
+    </div>
+</section>
+{{!-- Razorpay checkout js --}}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>

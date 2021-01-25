@@ -1,6 +1,7 @@
-*::-webkit-scrollbar {
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One:wght@400&display=swap");
+/* *::-webkit-scrollbar {
   display: none;
-}
+} */
 .header {
   display: flex;
   justify-content: space-between;
@@ -17,6 +18,12 @@
 .header > a:link {
   text-decoration: none;
 }
+.header-left{
+  /* font-family:Great Vibes; */
+  font-family:Fjalla One;
+  /* font-weight:normal;   */
+  font-size: 45px;
+}
 .header-right {
   display: flex;
   justify-content: space-around;
@@ -32,7 +39,7 @@
   font-weight: 500;
 }
 .header-right > a > h4:hover {
-  color: #fc8019;
+  color: #57C67F;
 }
 .header-right > a > img {
   height: 30px;
