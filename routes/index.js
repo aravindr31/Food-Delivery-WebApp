@@ -77,15 +77,34 @@ router.get("/addtocart/:id", (req, res) => {
 router.get("/cart", verifyLogin, async (req, res) => {
   let user = req.session.user;
   let cart = await apiFunction.getCart(user._id);
-  let total = await apiFunction.getTotal(user._id);
+  console.log(cart)
+  if(cart.length>0){
+    let total = await apiFunction.getTotal(user._id);
   res.render("User/Cart", {
-    title: "Foodies.com",
+    title: "Foodies.com", 
     cssFile: "Cart.css",
     user: user,
     cart: cart,
     total: total,
   });
-});
+}
+else{
+  res.render("User/Cart", {
+    title: "Foodies.com",
+    cssFile: "Cart.css",
+    user: user,
+  });
+}
+})
+//   let total = await apiFunction.getTotal(user._id);
+//   res.render("User/Cart", {
+//     title: "Foodies.com",
+//     cssFile: "Cart.css",
+//     user: user,
+//     cart: cart,
+//     total: total,
+//   });
+// });
 router.get("/checkout", verifyLogin, async (req, res) => {
   let sessionUser = req.session.user;
   let user = await apiFunction.getUser(sessionUser._id);
@@ -129,14 +148,14 @@ router.post("/checkout", verifyLogin, async (req, res) => {
   await apiFunction.confirmMail(sessionUser);
   let paymentObj = await apiFunction.payment(order.OrderId, total);
   // console.log(order,paymentObj)
-  res.json({ user,order,paymentObj });
+  res.json({ user, order, paymentObj });
   // console.log(order)
 });
 router.get("/ordersuccess", verifyLogin, (req, res) => {
   let user = req.session.user;
   // console.log("in order success--------------------");
   res.render("user/Order_Success", {
-    cssFile: "Order_Success.css", 
+    cssFile: "Order_Success.css",
     title: "Foodies.com",
     user: user,
   });
@@ -146,11 +165,24 @@ router.post("/paymentVerification", async (req, res) => {
   let sessionUser = req.session.user;
   await apiFunction.verifyPayment(req.body).then(() => {
     // res.json({ redirect: true });
-    console.log("from index verifypay")
-    apiFunction.changeStatus(sessionUser._id,req.body["order[receipt]"]).then((response)=>{
-      res.json(response)
-    })
+    console.log("from index verifypay");
+    apiFunction
+      .changeStatus(sessionUser._id, req.body["order[receipt]"])
+      .then((response) => {
+        res.json(response);
+      });
   });
 });
-
+router.get("/orders",verifyLogin, async(req, res) => {
+  let sessionUser = req.session.user;
+  let user = await apiFunction.getUser(sessionUser._id);
+  let orders = await apiFunction.getOrders(sessionUser._id)
+  console.log(orders)
+  res.render("User/Orders", {
+    cssFile: "Orders.css",
+    title: "Foodies.com",
+    user: user,
+    orders:orders,
+  });
+});
 module.exports = router;

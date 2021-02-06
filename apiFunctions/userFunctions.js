@@ -405,35 +405,40 @@ module.exports = {
       resolve({ changeStatus: true });
     });
   },
-  confirmMail:(user)=>{
-console.log(user)
-return new Promise((resolve,reject)=>{
+  confirmMail: (user) => {
+    console.log(user);
+    return new Promise((resolve, reject) => {
+      var message = `Thanks ${user.Name} <br> The order you placed at Foodie.com is confirmed.<br>You can track your order in Foodie.com/orders`;
 
-  var message=`Thanks ${user.Name} <br> The order you placed at Foodie.com is confirmed.<br>You can track your order in Foodie.com/orders`
+      var transporter = nodemailer.createTransport({
+        service: "hotmail",
+        auth: {
+          user: "xlabsoffical@outlook.com",
+          pass: "microsoft123#",
+        },
+      });
 
-  var transporter = nodemailer.createTransport({
-    service: 'hotmail',
-    auth: {
-      user: 'xlabsoffical@outlook.com',
-      pass: 'microsoft123#'
-    }
-  });
-  
-  var mailOptions = {
-    from:'xlabsoffical@outlook.com',
-    to: user.Email,
-    subject: "Order Confirmation",
-    text:message
-  };
-  
-  transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
-  });
-resolve()
-})
+      var mailOptions = {
+        from: "xlabsoffical@outlook.com",
+        to: user.Email,
+        subject: "Order Confirmation",
+        text: message,
+      };
+
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log("Email sent: " + info.response);
+        }
+      });
+      resolve();
+    });
+  },
+  getOrders:(userId)=>{
+    return new Promise(async(resolve,reject)=>{
+      let orderdetails= await db.get().collection(collection.ORDERS).findOne({user:ObjectId(userId)})
+      resolve(orderdetails.orders)
+    })
   }
 };

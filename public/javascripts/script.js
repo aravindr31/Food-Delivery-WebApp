@@ -16,16 +16,16 @@ const toggleForm = () => {
   const container = document.querySelector(".container");
   container.classList.toggle("active");
 };
-function addToCart(id){
+function addToCart(id) {
   $.ajax({
-    url:"/addtocart/"+id,
-    method:"get",
-    success:(response)=>{
-      if(response.addStatus){
-        alert("Item Added to cart")
+    url: "/addtocart/" + id,
+    method: "get",
+    success: (response) => {
+      if (response.addStatus) {
+        alert("Item Added to cart");
       }
-    }
-  })
+    },
+  });
 }
 
 // addnewAddress
@@ -36,21 +36,21 @@ $("#addNewAddress").submit((e) => {
     method: "post",
     data: $("#addNewAddress").serialize(),
     success: (response) => {
-      if(response.addStatus){
-        location.href="/checkout"
+      if (response.addStatus) {
+        location.href = "/checkout";
       }
     },
   });
-}); 
+});
 
-function goHome(){
-window.location.href="/"
+function goHome() {
+  window.location.href = "/";
 }
 
 //address toogle
 function check(x) {
-let tmp = document.getElementById("tadd");
-let def = document.getElementById("dadd");
+  let tmp = document.getElementById("tadd");
+  let def = document.getElementById("dadd");
   switch (x) {
     case "dAdd":
       tmp.checked = false;
@@ -66,79 +66,102 @@ let def = document.getElementById("dadd");
   // }
 }
 function paynow(id) {
-let tmp = document.getElementById("tadd");
-let def = document.getElementById("dadd");
-let addressSelector =""
-  if(tmp.checked == true)
-  {
-    addressSelector="tmpAddress"
+  let tmp = document.getElementById("tadd");
+  let def = document.getElementById("dadd");
+  let addressSelector = "";
+  if (def.checked == true) {
+    addressSelector = "defaultAddress";
   }
-  if(def.checked == true)
-  {
-    addressSelector="defaultAddress"
+  else if (tmp!=null&&tmp.checked == true) {
+    addressSelector = "tmpAddress";
   }
+
   {
     $.ajax({
       url: "/checkout",
       data: {
-        user:id,
-        address:addressSelector
+        user: id,
+        address: addressSelector,
       },
       method: "post",
-      success: (order,paymentObj) => {
-        console.log(order,paymentObj)
-        Rpay(order,paymentObj)
+      success: (order, paymentObj) => {
+        console.log(order, paymentObj);
+        Rpay(order, paymentObj);
       },
     });
   }
 }
-function Rpay(serverResponse){
+function Rpay(serverResponse) {
   // console.log("Server response>>>>>>",serverResponse)
   var options = {
-    "key": "rzp_test_Jt7dPp8jwV1KsB", // Enter the Key ID generated from the Dashboard
-    "amount": serverResponse.paymentObj.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-    "currency": "INR",
-    "name": "Foodies",
+    key: "rzp_test_Jt7dPp8jwV1KsB", // Enter the Key ID generated from the Dashboard
+    amount: serverResponse.paymentObj.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    currency: "INR",
+    name: "Foodies",
     // "description": "Test Transaction",
     // "image": "https://example.com/your_logo",
-    "order_id": serverResponse.paymentObj.id,//This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-    "handler": function (response){
-      console.log(">>>>>>>>>>>response",response,serverResponse.paymentObj,serverResponse.user._id)
-        paymentVerification(response,serverResponse.paymentObj)
+    order_id: serverResponse.paymentObj.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    handler: function (response) {
+      console.log(
+        ">>>>>>>>>>>response",
+        response,
+        serverResponse.paymentObj,
+        serverResponse.user._id
+      );
+      paymentVerification(response, serverResponse.paymentObj);
     },
-    "prefill": {
-        "name": serverResponse.user.Name,
-        "email": serverResponse.user.Email,
-        "contact": serverResponse.user.Mobile
+    prefill: {
+      name: serverResponse.user.Name,
+      email: serverResponse.user.Email,
+      contact: serverResponse.user.Mobile,
     },
-    "notes": {
-        "address": serverResponse.order.deliveryDetails.address,
-        "city":serverResponse.order.deliveryDetails.city,
-        "state":serverResponse.order.deliveryDetails.state,
-        "zipcode":serverResponse.order.deliveryDetails.zipCode
+    notes: {
+      address: serverResponse.order.deliveryDetails.address,
+      city: serverResponse.order.deliveryDetails.city,
+      state: serverResponse.order.deliveryDetails.state,
+      zipcode: serverResponse.order.deliveryDetails.zipCode,
     },
-    "theme": {
-        "color": "#57C67F"
-    }
-};  
-var rzp1 = new Razorpay(options);
-rzp1.open();
+    theme: {
+      color: "#57C67F",
+    },
+  };
+  var rzp1 = new Razorpay(options);
+  rzp1.open();
 }
 
-function paymentVerification(paymentDetails,order){
-  console.log("IN PAYMENTVAERIFICATION")
+function paymentVerification(paymentDetails, order) {
+  console.log("IN PAYMENTVAERIFICATION");
   $.ajax({
-    url : '/paymentVerification',
+    url: "/paymentVerification",
+    data: {
+      paymentDetails: paymentDetails,
+      order: order,
+    },
+    method: "post",
+    success: (response) => {
+      if (response.changeStatus) {
+        location.href = "/ordersuccess";
+      }
+    },
+  });
+}
+
+
+//Admin
+function changeStatus(orderId,userId,status){
+  console.log(orderId,userId,status)
+  $.ajax({
+    url : '/admin/changeStatus',
     data : {
-      paymentDetails:paymentDetails,
-      order:order
+      orderId :orderId,
+      user : userId,
+      status:status
     },
     method : 'post',
-    success:(response)=>{
-      if(response.changeStatus){
-        location.href = "/ordersuccess";
-      } 
+    success :(response) =>{
+      if (response.status){
+        document.getElementById(orderId).innerHTML=response.status;
+      }
     }
-    
   })
 }

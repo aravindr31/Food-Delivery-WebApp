@@ -1,0 +1,38 @@
+<section>
+    {{>Header}}
+    <div class="container">
+        <h2>Your Orders</h2>
+        {{#each orders}}
+        <div class="contain">
+            <div class="top">
+                <div class="orderid">
+                    <h5>Order ID:- <span> {{OrderId}}</span></h5>
+                </div>
+                <div class="date">
+                    <h5>Placed On:-<span> 25-Jan-2021</span></h5>
+                </div>
+                <div class="prize">
+                    <h5>Total Prize:-<span> ₹ {{Total}}</span></h5>
+                </div>
+            </div>
+            <div class="middle">
+                <div class="status">
+                    <h3>{{status}}</h3>
+                </div>
+                <div class="cancel">
+                    <button class="btn btn-outline-danger">Cancel</button>
+                </div>
+
+            </div>
+            <div class="bottom">
+                <div class="progress" style="height:10px">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar"
+                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                </div>
+            </div>
+
+        </div>
+
+        {{/each}}
+    </div>
+</section>

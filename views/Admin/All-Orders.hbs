@@ -1,0 +1,52 @@
+{{>Header}}
+<section>
+    <div class="container">
+        <br>
+        <h3>All Orders</h3>
+        <br>
+        <table class="table  table-bordered border-secondary">
+            <thead>
+                <tr>
+                    <th scope="col">Orders</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Placed At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each order}}
+                {{#each this.orders}}
+                <tr>
+                    <td>{{OrderId}}</td>
+                    <td>{{../user}}</td>
+                    <td>{{deliveryDetails.address}}</td>
+                    <td class="text-center">
+                        <div class="dropdown">
+                            <div class="dropdown">
+                                <button class="btn  dropdown-toggle" type="button" id={{OrderId}}
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{status}}
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><button class="dropdown-item" value="Placed"
+                                            onclick="changeStatus('{{OrderId}}','{{../user}}',this.value)">Placed</a>
+                                    <li><button class="dropdown-item " value="Confirmed"
+                                            onclick="changeStatus('{{OrderId}}','{{../user}}',this.value)">Confirmed</button></li>
+                                    <li><button class="dropdown-item " value="Shipped"
+                                            onclick="changeStatus('{{OrderId}}','{{../user}}',this.value)">Shipped</button></li>
+                                    <li><button class="dropdown-item " value="Delivered"
+                                            onclick="changeStatus('{{OrderId}}','{{../user}}',this.value)">Delivered</button></li>
+                                    <li><button class="dropdown-item " value="Cancelled"
+                                            onclick="changeStatus('{{OrderId}}','{{../user}}',this.value)">Cancelled</button></li>
+                                </ul>
+                            </div>
+                    </td>
+                    <td>{{Date}}</td>
+                </tr>
+                {{/each}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</section>

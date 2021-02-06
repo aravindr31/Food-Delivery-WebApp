@@ -1,0 +1,57 @@
+.container {
+  margin-top: 85px;
+  height: calc(100vh - 85px);
+  /* overflow: hidden; */
+  padding-bottom: 15px;
+}
+.container >h2{
+  font-weight:normal;
+}
+.contain {
+  background-color: white;
+  margin: 10px;
+}
+.contain:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+.top {
+  display: flex;
+  justify-content: space-around;
+  align-self: center;
+  padding-top: 15px;
+}
+.orderid > h5 {
+  font-weight: normal;
+  color: #57c67f;
+}
+.date > h5 {
+  font-weight: normal;
+}
+.prize > h5 {
+  font-weight: normal;
+}
+.middle {
+  display: flex;
+  /* justify-content:center;
+  align-items: center; */
+  margin-top: 20px;
+  /* margin-right:100px; */
+}
+.status {
+  flex: 0.55;
+  display: flex;
+  justify-content: flex-end;
+  /* border:1px solid black */
+}
+.cancel {
+  flex: 0.45;
+  display: flex;
+  justify-content: space-evenly;
+  /* margin-left: 100px; */
+  /* border:1px solid green */
+}
+.bottom {
+  padding: 20px 0;
+
+  margin: 0 40px;
+}

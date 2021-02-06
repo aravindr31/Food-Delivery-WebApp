@@ -1,17 +1,11 @@
 <section>
     {{>Header}}
     <div class="container">
-        {{!-- <div class="emptyCart">
-            <h4>Cart is Empty :(</h4>
-            <h5 class="text-muted">you haven't ordered anything yet</h5>
-            <h5 class="text-muted">to order,go back to Home Page</h5>
-            <img src="https://www.flaticon.com/svg/static/icons/svg/2169/2169831.svg" alt="">
-            <a class="btn" href="/">Go back</a>
-        </div> --}}
+        {{#if cart}}
         <div class="cart pt-4">
             <div class="cart-top">
                 <img src="https://www.flaticon.com/svg/static/icons/svg/3039/3039878.svg" alt="">
-                <h5>5 Items</h5>
+                <h5>{{cart.length}} Items</h5>
             </div>
             <div class="cart-bottom">
                 <div class="cart-left me-1">
@@ -38,6 +32,7 @@
                     </div>
                     {{/each}}
                 </div>
+                {{#if total}}
                 <div class="cart-right ms-1">
                     <div class="cart-right-top">
                         <div class="subtotal">
@@ -63,7 +58,17 @@
                         </div>
                     </div>
                 </div>
+                {{/if}}
             </div>
         </div>
+        {{else}}
+        <div class="emptyCart">
+            <h4>Cart is Empty :(</h4>
+            <h5 class="text-muted">you haven't ordered anything yet</h5>
+            <h5 class="text-muted">to order,go back to Home Page</h5>
+            <img src="https://www.flaticon.com/svg/static/icons/svg/2169/2169831.svg" alt="">
+            <a class="btn" href="/">Go back</a>
+        </div>
+        {{/if}}
     </div>
 </section>

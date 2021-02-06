@@ -281,3 +281,38 @@ margin-right: 20px;
 .sidebar-footer >.btn:hover{
   color: white;
 }
+
+
+{{!-- <table class="table mt-3">
+    <thead class="table-dark">
+        <tr>
+            <th style="width: 35%" scope="col">Order</th>
+            <th style="width: 20%" scope="col">Address</th>
+            <th scope="col">Time</th>
+            <th scope="col">Prize</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each orders}}
+        <tr>
+            <th>{{OrderId}}</th>
+            <td>{{deliveryDetails.address}}</td>
+            <td>25 Jan 2021</td>
+            <td>₹ {{Total}}</td>
+            <td>{{status}}</td>
+        </tr>
+        {{!-- <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>twitter</td>
+        </tr> --}}
+        {{/each}}
+    </tbody>
+</table> --}}

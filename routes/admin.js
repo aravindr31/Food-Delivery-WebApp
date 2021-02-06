@@ -33,5 +33,21 @@ router.post("/adddish", (req, res) => {
     }
   });
 });
+router.get("/allorders", (req, res) => {
+  apiFunction.getOrders().then((order)=>{
+    res.render("Admin/All-Orders", {
+      admin: true,
+      order:order,
+      title: "Foodies.com",
+      cssFile: "All_Orders.css",
+    });
+  })
+});
+router.post("/changeStatus",(req,res)=>{
+  apiFunction.changeStatus(req.body).then((status)=>{
+    console.log(status)
+    res.json({status})
+  })
+})
 
 module.exports = router;
